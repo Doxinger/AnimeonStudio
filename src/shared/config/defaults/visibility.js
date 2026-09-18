@@ -1,0 +1,33 @@
+AONC.define('config.defaults.visibility', function () {
+  return {
+    battlepass: false,
+    premium: false,
+    roadmap: false,
+    mangaTeaser: false,
+    heroSlider: false,
+    news: false,
+    schedule: false,
+    collections: false,
+    randomButton: false,
+    footer: false,
+    footerLinks: false,
+    header: false,
+    headerSearch: false,
+    mobileMenuButton: false,
+    comments: false,
+    recommendations: false,
+    similarAnime: false,
+    ratings: false,
+    badges: false,
+    shareButtons: false,
+    socialLinks: false,
+    cookieBanner: false,
+    popups: false,
+    tooltips: false,
+    scrollbars: false,
+    mobileBottomNav: false,
+    skeletons: false,
+    ads: false,
+    premiumBadges: false
+  };
+});

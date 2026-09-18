@@ -1,0 +1,137 @@
+{
+  "manifest_version": 3,
+  "name": "AnimeOn Studio — кастомизация animeon.cc",
+  "short_name": "AnimeOn Studio",
+  "version": "1.1.1",
+  "description": "Кастомизация animeon.cc: темы, шрифты, плотность, стекло, режимы плеера Kodik, пипетка, витрина профиля, свой CSS и JS.",
+  "homepage_url": "https://animeon.cc/",
+  "author": "AnimeOn Studio",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "AnimeOn Studio",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
+  },
+  "background": {
+    "service_worker": "bundles/background.js"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "contextMenus",
+    "alarms",
+    "declarativeNetRequest",
+    "unlimitedStorage",
+    "webNavigation"
+  ],
+  "optional_host_permissions": [
+    "*://mc.yandex.ru/*",
+    "*://mc.yandex.com/*",
+    "*://an.yandex.ru/*",
+    "*://yastatic.net/*",
+    "*://ads.adfox.ru/*",
+    "*://www.googletagmanager.com/*",
+    "*://www.google-analytics.com/*",
+    "*://analytics.google.com/*",
+    "*://stats.g.doubleclick.net/*",
+    "*://googleads.g.doubleclick.net/*"
+  ],
+  "host_permissions": [
+    "*://animeon.cc/*",
+    "*://*.animeon.cc/*",
+    "*://v1.animeon.co/*",
+    "*://v2.animeon.co/*",
+    "*://raw.githubusercontent.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://animeon.cc/*",
+        "*://*.animeon.cc/*",
+        "*://v1.animeon.co/*",
+        "*://v2.animeon.co/*"
+      ],
+      "js": [
+        "bundles/shared.js",
+        "bundles/content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "*://kodikplayer.com/*",
+        "*://*.kodikplayer.com/*",
+        "*://kodik.info/*",
+        "*://*.kodik.info/*",
+        "*://kodikapi.com/*",
+        "*://*.kodikapi.com/*"
+      ],
+      "js": [
+        "bundles/shared.js",
+        "bundles/kodik.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/*"
+      ],
+      "matches": [
+        "*://animeon.cc/*",
+        "*://*.animeon.cc/*",
+        "*://v1.animeon.co/*",
+        "*://v2.animeon.co/*"
+      ]
+    }
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+O"
+      },
+      "description": "Открыть панель AnimeOn Studio"
+    },
+    "toggle-extension": {
+      "suggested_key": {
+        "default": "Alt+Shift+X"
+      },
+      "description": "Включить / выключить расширение"
+    },
+    "open-picker": {
+      "description": "Пипетка элементов"
+    },
+    "theater-mode": {
+      "description": "Театральный режим плеера"
+    },
+    "open-studio": {
+      "description": "Открыть студию настроек"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "animeon-studio@errornetwork",
+      "strict_min_version": "115.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}

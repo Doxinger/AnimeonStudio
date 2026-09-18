@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru" data-scheme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AnimeOn Studio</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body class="booting" data-tab="off">
+
+<div class="shell" id="shell">
+
+  <header class="hd">
+    <span class="mark" aria-hidden="true">A</span>
+    <div class="hd-text">
+      <b class="hd-title" data-i18n="popup.title">AnimeOn Studio</b>
+      <button class="pill" id="site-state" type="button">
+        <i class="pill-dot" aria-hidden="true"></i>
+        <span class="pill-text" id="site-state-text" data-i18n="popup.state.checking">проверка вкладки…</span>
+      </button>
+    </div>
+    <label class="sw" id="master-wrap" title="Включить / выключить расширение">
+      <input type="checkbox" id="master" checked>
+      <span class="track" aria-hidden="true"></span>
+      <span class="sr" data-i18n="popup.master">Включить или выключить расширение</span>
+    </label>
+  </header>
+
+  <div class="savebar" id="savebar" aria-hidden="true"><i></i></div>
+
+  <div class="banner" id="banner" hidden>
+    <span class="banner-ic" id="banner-ic" aria-hidden="true"></span>
+    <p class="banner-text" id="banner-text"></p>
+    <button class="btn tiny" id="banner-act" type="button" hidden></button>
+    <button class="btn tiny" id="banner-act2" type="button" hidden></button>
+  </div>
+
+  <main class="body" id="body">
+
+    <section class="blk" id="blk-theme" aria-labelledby="t-theme">
+      <div class="blk-head">
+        <span class="blk-ic" data-icon="palette" aria-hidden="true"></span>
+        <h2 class="blk-title" id="t-theme" data-i18n="popup.section.theme">Тема</h2>
+        <span class="sp"></span>
+        <button class="lnk" id="all-themes" type="button">
+          <span data-i18n="popup.allThemes">Все темы</span>
+          <span class="lnk-ic" data-icon="arrow-right" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="rail" id="presets" role="group" data-i18n-aria="popup.a11y.presets" aria-label="Пресеты темы"></div>
+      <div class="accent">
+        <span class="accent-name" id="accent-name" data-i18n="popup.accent">Акцент</span>
+        <div class="swatches" id="accent-dots" role="group" data-i18n-aria="popup.a11y.accents" aria-label="Готовые цвета акцента"></div>
+        <label class="cpick" id="cpick">
+          <input type="color" id="accent" value="#7C4DFF">
+          <span class="sr" data-i18n="popup.accentCustom">Свой цвет акцента</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="blk" id="blk-tune" aria-labelledby="t-tune">
+      <div class="blk-head">
+        <span class="blk-ic" data-icon="sliders-horizontal" aria-hidden="true"></span>
+        <h2 class="blk-title" id="t-tune" data-i18n="popup.section.tune">Быстрая настройка</h2>
+        <span class="sp"></span>
+        <span class="hint" id="tune-hint" data-i18n="popup.tuneHint">клик по значению — сброс</span>
+      </div>
+      <div class="sliders" id="sliders"></div>
+    </section>
+
+    <section class="blk" id="blk-modes" aria-labelledby="t-modes">
+      <div class="blk-head">
+        <span class="blk-ic" data-icon="monitor-play" aria-hidden="true"></span>
+        <h2 class="blk-title" id="t-modes" data-i18n="popup.section.modes">Режимы просмотра</h2>
+        <span class="sp"></span>
+        <span class="hint" id="modes-hint"></span>
+      </div>
+      <div class="modes" id="modes" role="group" data-i18n-aria="popup.a11y.modes" aria-label="Режимы просмотра"></div>
+    </section>
+
+    <section class="blk" id="blk-profiles" aria-labelledby="t-profiles" hidden>
+      <div class="blk-head">
+        <span class="blk-ic" data-icon="folder-heart" aria-hidden="true"></span>
+        <h2 class="blk-title" id="t-profiles" data-i18n="popup.section.profiles">Профили</h2>
+        <span class="sp"></span>
+        <button class="lnk" id="all-profiles" type="button">
+          <span data-i18n="popup.allProfiles">Управление</span>
+          <span class="lnk-ic" data-icon="arrow-right" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="rail" id="profiles" role="group" data-i18n-aria="popup.a11y.profiles" aria-label="Сохранённые профили"></div>
+    </section>
+
+    <section class="blk last" id="blk-hide" aria-labelledby="t-hide">
+      <div class="blk-head">
+        <span class="blk-ic" data-icon="eye-off" aria-hidden="true"></span>
+        <h2 class="blk-title" id="t-hide" data-i18n="popup.section.hide">Скрыть блоки</h2>
+        <span class="sp"></span>
+        <button class="lnk" id="all-hide" type="button">
+          <span id="all-hide-text" data-i18n="popup.allBlocks">Все блоки</span>
+          <span class="lnk-ic" data-icon="arrow-right" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="toggles" id="quick-hide"></div>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <span class="save" id="save-state" role="status" aria-live="polite" data-k="ready">готово</span>
+    <span class="sp"></span>
+    <div class="seg" role="group" data-i18n-aria="popup.a11y.history" aria-label="История изменений">
+      <button class="ibtn" id="btn-undo" type="button" disabled
+              data-i18n-title="popup.undo" title="Отменить (Ctrl+Z)"><span data-icon="undo-2"></span></button>
+      <button class="ibtn" id="btn-redo" type="button" disabled
+              data-i18n-title="popup.redo" title="Повторить (Ctrl+Shift+Z)"><span data-icon="redo-2"></span></button>
+    </div>
+    <button class="ibtn" id="btn-reload" type="button"
+            data-i18n-title="popup.reload" title="Перезагрузить вкладку сайта"><span data-icon="refresh-cw"></span></button>
+    <button class="btn primary" id="btn-studio" type="button">
+      <span data-icon="sparkles" aria-hidden="true"></span>
+      <span data-i18n="popup.studio">Открыть студию</span>
+    </button>
+  </footer>
+
+</div>
+
+<div class="stale" id="stale" hidden>
+  <div class="stale-card">
+    <span class="stale-ic" data-icon="alert-triangle" aria-hidden="true"></span>
+    <b data-i18n="popup.stale.title">Панель устарела</b>
+    <p data-i18n="popup.stale.text">Расширение было перезагружено. Обновите панель, затем обновите вкладку сайта.</p>
+    <button class="btn primary" id="stale-act" type="button" data-i18n="popup.stale.action">Обновить панель</button>
+  </div>
+</div>
+
+<script src="../bundles/shared.js"></script>
+<script src="../bundles/popup.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

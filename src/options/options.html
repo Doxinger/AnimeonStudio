@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AnimeOn Studio</title>
+<link rel="stylesheet" href="options.css">
+</head>
+<body>
+<div id="stale-banner" class="stale" hidden>
+  <b>Страница студии устарела.</b>
+  Расширение перезагружалось или обновлялось после открытия этой вкладки — её соединение с фоном разорвано, поэтому правки не сохраняются и не применяются.
+  <button class="btn sm" id="btn-stale-reload" type="button">Перезагрузить студию</button>
+</div>
+
+<div id="app" class="booting">
+
+  <aside class="side">
+    <div class="brand">
+      <span class="mark">A</span>
+      <span class="name">AnimeOn <b>Studio</b></span>
+    </div>
+
+    <div class="master">
+      <label class="sw big">
+        <input type="checkbox" id="master-toggle" checked>
+        <span class="track"></span>
+        <span class="sw-text">Расширение включено</span>
+      </label>
+    </div>
+
+    <nav class="nav" id="nav"></nav>
+
+    <div class="side-foot">
+      <div class="ver" id="version"></div>
+      <button class="btn ghost sm" id="btn-open-site" type="button">Открыть сайт</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="top">
+      <div class="top-left">
+        <h1 id="section-title">Тема</h1>
+        <p id="section-intro" class="intro-line"></p>
+      </div>
+      <div class="top-right">
+        <label class="searchbox" title="Поиск по настройкам (Ctrl+K)">
+          <span class="s-ic">⌕</span>
+          <input type="text" id="search-input" placeholder="Поиск: фон, кегль, шапка…" autocomplete="off" spellcheck="false">
+          <span class="s-kbd">Ctrl K</span>
+        </label>
+        <span class="save-state" id="save-state">сохранено</span>
+        <button class="btn sm ghost" id="btn-undo" type="button" title="Отменить изменение (Ctrl+Z)" disabled>⎌</button>
+        <button class="btn sm ghost" id="btn-redo" type="button" title="Повторить (Ctrl+Shift+Z)" disabled>⎌→</button>
+        <button class="btn sm ghost" id="btn-reset-section" type="button" title="Вернуть значения текущего раздела к исходным" hidden>↺ Сброс раздела</button>
+        <button class="btn sm" id="btn-picker" type="button">⬚ Пипетка</button>
+        <button class="btn sm" id="btn-reapply" type="button" title="Очистить boot-кэш страницы и применить конфиг ко всем открытым вкладкам сайта">⟲ Переприменить</button>
+        <button class="btn sm" id="btn-reload" type="button">↻ Обновить вкладку</button>
+      </div>
+    </header>
+
+    <div class="split">
+      <section class="panel-scroll" id="panel"></section>
+
+      <aside class="preview-side" id="preview-side">
+        <div class="preview-head">
+          <b>Предпросмотр</b>
+          <span class="badge" id="preview-badge">—</span>
+          <span class="sp"></span>
+          <div class="seg" role="group" title="Ширина макета">
+            <button class="seg-btn on" id="pv-w-desktop" type="button" title="Десктоп">D</button>
+            <button class="seg-btn" id="pv-w-tablet" type="button" title="Планшет">T</button>
+            <button class="seg-btn" id="pv-w-mobile" type="button" title="Телефон">M</button>
+          </div>
+          <label class="zoom" title="Масштаб макета">
+            <input type="range" id="preview-zoom" min="40" max="120" step="5" value="70">
+          </label>
+          <button class="mini" id="btn-preview-hide" type="button" title="Скрыть предпросмотр">»</button>
+        </div>
+        <div class="preview-frame-wrap">
+          <iframe id="preview" title="Предпросмотр" sandbox="allow-same-origin"></iframe>
+        </div>
+        <div class="preview-foot">
+          <span>Макет повторяет классы сайта: <code>aon-glass</code>, <code>group/card</code>, <code>aspect-[2/3]</code>.</span>
+        </div>
+      </aside>
+      <button class="preview-restore" id="btn-preview-show" type="button" hidden title="Показать предпросмотр">«</button>
+    </div>
+  </main>
+
+</div>
+
+<div id="aonc-toasts"></div>
+
+<script src="../bundles/shared.js"></script>
+<script src="../bundles/ui.js"></script>
+<script src="options.js"></script>
+</body>
+</html>

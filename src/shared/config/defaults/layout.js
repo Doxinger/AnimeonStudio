@@ -1,0 +1,31 @@
+AONC.define('config.defaults.layout', function () {
+  return {
+    containerWidth: 0,
+    density: 100,
+    columns: 0,
+    posterScale: 100,
+    posterRadius: -1,
+    posterGap: 0,
+    posterAspect: '',
+    posterShadow: 'default',
+    heroScale: 100,
+    cardHover: 'default',
+    cardBorder: false,
+    fullWidthRows: false,
+    showRowScrollbars: false,
+    clipAvatars: true,
+    hideAvatarFrames: false,
+    listMode: 'default',
+    promoLast: false,
+    ratingColors: false,
+    pfHideCover: false,
+    pfBlurCover: 0,
+    pfHideEdit: false,
+    pfHidePremium: false,
+    pfHideNoise: false,
+    pfCoverAccent: false,
+    collectionsQuickDelete: true,
+    grayscalePosters: 0,
+    dimPosters: 0
+  };
+});

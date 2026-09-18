@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dist-firefox/
+releases/
+popup-preview.html
+frames-preview.html
+studio-preview.html
+*.log
+.DS_Store

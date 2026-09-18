@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru" data-scheme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AnimeOn Studio — сайт не открывается</title>
+<link rel="stylesheet" href="offline.css">
+</head>
+<body>
+
+<main class="card" id="card">
+  <header class="hd">
+    <span class="mark" aria-hidden="true">A</span>
+    <div class="hd-tx">
+      <b class="hd-title">AnimeOn Studio</b>
+      <span class="hd-sub" id="src-note">страница-плашка</span>
+    </div>
+    <span class="chip" id="err-chip" hidden></span>
+  </header>
+
+  <section class="hero">
+    <div class="ic" id="tone-ic" aria-hidden="true">
+      <svg data-tone="vpn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26"><path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 5.17-2.69"/><path d="M19 12.859a10 10 0 0 0-2.007-1.523"/><path d="M2 8.82a15 15 0 0 1 4.177-2.643"/><path d="M22 8.82a15 15 0 0 0-11.289-3.764"/><path d="m2 2 20 20"/></svg>
+      <svg data-tone="net" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" hidden><path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 5.17-2.69"/><path d="M19 12.859a10 10 0 0 0-2.007-1.523"/><path d="M2 8.82a15 15 0 0 1 4.177-2.643"/><path d="M22 8.82a15 15 0 0 0-11.289-3.764"/></svg>
+      <svg data-tone="cert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" hidden><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+      <svg data-tone="server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" hidden><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+      <svg data-tone="other" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" hidden><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+    </div>
+    <h1 class="ttl" id="tone-title">Сайт не открывается</h1>
+    <p class="desc" id="tone-desc">Включите VPN или перейдите на другое зеркало.</p>
+    <p class="url" id="orig-url" hidden></p>
+  </section>
+
+  <div class="acts">
+    <button class="btn pri" id="go-mirror" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+      <span id="go-mirror-text">Перейти на зеркало</span>
+    </button>
+    <button class="btn" id="retry" type="button" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+      <span>Повторить</span>
+    </button>
+    <button class="btn" id="studio" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15" aria-hidden="true"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+      <span>Студия</span>
+    </button>
+  </div>
+
+  <section class="mirrors">
+    <div class="mirrors-hd">
+      <h2 class="mirrors-ttl">Зеркала</h2>
+      <button class="lnk" id="reprobe" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+        <span>Проверить</span>
+      </button>
+    </div>
+    <div id="mirror-list" class="mirror-list" role="list"></div>
+    <p class="note" id="probe-note">Проверяем доступность зеркал…</p>
+  </section>
+
+  <section class="opts">
+    <label class="tg">
+      <input type="checkbox" id="opt-autopage" checked>
+      <span class="track" aria-hidden="true"></span>
+      <span class="tg-tx"><b>Плашка вместо ошибки браузера</b><i>Подменять страницу ошибки сети этой страницей</i></span>
+    </label>
+    <label class="tg">
+      <input type="checkbox" id="opt-probe" checked>
+      <span class="track" aria-hidden="true"></span>
+      <span class="tg-tx"><b>Проверка зеркал</b><i>Опрашивать зеркала и предлагать живое</i></span>
+    </label>
+  </section>
+
+  <p class="stale" id="stale" hidden>Расширение было обновлено или отключено — перезагрузите эту страницу.</p>
+</main>
+
+<script src="../bundles/shared.js"></script>
+<script src="offline.js"></script>
+</body>
+</html>

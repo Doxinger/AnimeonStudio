@@ -1,0 +1,16 @@
+{
+  "name": "animeon-studio",
+  "version": "1.1.1",
+  "description": "Кросс-браузерное расширение (Chrome + Firefox) для полной кастомизации сайта **animeon.cc**: темы и палитры, типографика, плотность вёрстки, стеклянная шапка, сетка и постеры, режимы плеера Kodik, скрытие любых блоков «пипеткой», приватность и свой CSS/JS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.39.5",
+    "jsdom": "^29.1.1"
+  }
+}
