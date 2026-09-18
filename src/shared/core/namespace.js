@@ -9,7 +9,7 @@
 
   // JSON с версией релиза для проверки обновлений (без автоустановки).
   // Переопределяется настройкой meta.updateUrl.
-  AONC.DEFAULT_UPDATE_URL = 'https://raw.githubusercontent.com/Doxinger/repo/main/update-check.json';
+  AONC.DEFAULT_UPDATE_URL = 'https://raw.githubusercontent.com/Doxinger/AnimeonStudio/main/update-check.json';
 
   AONC.HOSTS = ['animeon.cc', 'v1.animeon.co', 'v2.animeon.co'];
   AONC.PRIMARY_HOST = 'animeon.cc';
